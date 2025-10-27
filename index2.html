@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Login — Lost in Translation</title>
+		<link rel="stylesheet" href="style2.css" />
+	</head>
+	<body>
+		<main class="container">
+			<section class="card" aria-labelledby="login-heading">
+				<h1 id="login-heading">Login</h1>
+
+				<form id="login-form" novalidate>
+					<div class="segmented" role="tablist" aria-label="Login method">
+						<button type="button" class="seg-btn active" data-mode="email" aria-pressed="true">Email</button>
+						<button type="button" class="seg-btn" data-mode="phone" aria-pressed="false">Phone</button>
+					</div>
+
+					<div class="field">
+						<label for="identifier" id="identifier-label">Email</label>
+						<input id="identifier" name="identifier" inputmode="email" autocomplete="email" placeholder="you@example.com" required />
+						<div class="field-hint" id="identifier-hint"></div>
+					</div>
+
+					<div class="field">
+						<label for="password">Password</label>
+						<input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required minlength="6" />
+					</div>
+
+					<fieldset class="role-fieldset">
+						<legend>Sign in as</legend>
+						<label><input type="radio" name="role" value="user" checked /> User</label>
+						<label><input type="radio" name="role" value="operator" /> Operator</label>
+					</fieldset>
+
+					<div class="actions">
+						<label class="remember"><input type="checkbox" id="remember" /> Remember me</label>
+						<a class="link" href="#">Forgot?</a>
+					</div>
+					<a href="index.html"><button id="submit-btn" class="primary" type="submit">Log in</button></a>
+
+					<p class="signup">Don't have an account? <a href="#">Sign up</a></p>
+				</form>
+
+				<div id="result" class="result" aria-live="polite"></div>
+			</section>
+		</main>
+				 <a href="index.html"><div class="colorbox10"></div></a>
+		<script src="script2.js" defer></script>
+	</body>
+</html>

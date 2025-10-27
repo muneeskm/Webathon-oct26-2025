@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Petrol Delivery — Minimal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="wrap">
+        <h1>Petrol Delivery</h1>
+
+        <div class="row">
+            <label>Mode
+                <select id="mode">
+                    <option value="liters">Liters</option>
+                    <option value="amount">Amount</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="row" id="litersRow">
+            <label>Liters<input id="liters" type="number" min="0" step="0.1" value="10"></label>
+        </div>
+
+        <div class="row hidden" id="amountRow">
+            <label>Amount (₹)<input id="amount" type="number" min="0" step="1" value="900"></label>
+        </div>
+
+        <div class="row">
+            <label>Fuel
+                <select id="grade">
+                    <option value="petrol">Petrol (₹90/L)</option>
+                    <option value="premium">Premium (₹100/L)</option>
+                </select>
+            </label>
+        </div>
+
+            <!-- Pump selection removed to keep form minimal -->
+
+        <div class="row">
+            <label>Address<input id="address" type="text" placeholder="Delivery address"></label>
+        </div>
+
+        <div class="summary">
+            <div>Price: <span id="price">₹90</span>/L</div>
+            <div>Estimated: <span id="est">—</span></div>
+        </div>
+
+        <div class="row">
+            <button id="proceed">Proceed to Payment</button>
+        </div>
+    
+            <!-- Payment section (hidden until user clicks Proceed) -->
+            <div id="paymentSection" class="hidden">
+                <h2>Payment</h2>
+                <div class="row">
+                    <label>Method
+                        <select id="payMethod">
+                            <option value="card">Card</option>
+                            <option value="upi">UPI</option>
+                            <option value="cod">Cash on Delivery</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div id="cardBox" class="pay-box">
+                    <label>Card number<input id="cardNumber" type="text" placeholder="4111 1111 1111 1111"></label>
+                    <label>Expiry<input id="cardExp" type="text" placeholder="MM/YY"></label>
+                    <label>CVV<input id="cardCvv" type="password" placeholder="123"></label>
+                </div>
+
+                <div id="upiBox" class="pay-box hidden">
+                    <label>UPI ID<input id="upiId" type="text" placeholder="example@bank"></label>
+                </div>
+
+                <div id="codBox" class="pay-box hidden">
+                    <p>Pay cash to the delivery person upon arrival.</p>
+                </div>
+
+                <div class="row">
+                    <button id="payNow">Pay Now</button>
+                    <button id="payCancel" class="alt">Cancel</button>
+                </div>
+            </div>
+            <a href="payment/pay.js"></a>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

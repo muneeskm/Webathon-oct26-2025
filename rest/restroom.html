@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Restrooms</title>
+    <style>
+        /* Optional: Basic styling for the button */
+        #findRestroomButton {
+            position:absolute;
+            top: 300px;
+            left: 600px;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 400px;
+        }
+        .image13{
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            z-index:1;
+            width: 60px;
+            height: auto;
+}
+    </style>
+</head>
+<body>
+
+    <button id="findRestroomButton">
+        Find Nearby Restrooms
+    </button>
+
+    <script>
+        document.getElementById('findRestroomButton').addEventListener('click', function() {
+            // Define the search term
+            const searchTerm = 'restrooms'; // You can change this to 'public toilet' or 'bathroom' if preferred
+
+            // Check if the browser supports the Geolocation API
+            if (navigator.geolocation) {
+                // Get the user's current position
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        // Success: Location found
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+
+                        // Construct the Google Maps URL with the precise coordinates and search term
+                        // The 'q' parameter is the search query
+                        // The '@lat,lng,14z' centers the map on the user's location with a zoom level (14z)
+                        const mapUrl = `https://www.google.com/maps/search/${searchTerm}/@${lat},${lng},14z`;
+
+                        // Open the URL in a new tab/window
+                        window.open(mapUrl, '_blank');
+                    },
+                    function(error) {
+                        // Error: User denied location or a problem occurred
+                        console.error("Geolocation Error:", error);
+                        
+                        // Fallback to a generic "near me" search
+                        alert("Couldn't get your precise location. Opening generic 'Restrooms Near Me' search.");
+                        const fallbackUrl = `https://www.google.com/maps/search/${searchTerm}+near+me`;
+                        window.open(fallbackUrl, '_blank');
+                    },
+                    {
+                        // Options for getCurrentPosition
+                        enableHighAccuracy: true,
+                        timeout: 5000,           
+                        maximumAge: 0             
+                    }
+                );
+            } else {
+                // Browser does not support Geolocation
+                alert("Your browser does not support Geolocation. Opening generic search.");
+                const fallbackUrl = `https://www.google.com/maps/search/${searchTerm}+near+me`;
+                window.open(fallbackUrl, '_blank');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spot Ease Parking - Select Spot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="parking-style.css"> 
+    <!-- Ensure Font Awesome is linked -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+
+    <!-- Reusing Header from previous design -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-car-alt"></i>
+            <h1>Spot Ease Parking</h1>
+        </div>
+    </header>
+
+    <main class="results-page-layout">
+        
+        <!-- Main Content Area: Visualization & Instructions -->
+        <section class="main-content-area">
+            <div class="header-info">
+                <a href="#" class="back-link"><i class="fas fa-arrow-left"></i> Modify Search</a>
+                <h2 class="title">Available Slots: City Center Mall, P2</h2>
+                <p class="subtitle">Select a green spot on the map to proceed with booking.</p>
+            </div>
+
+            <!-- Parking Lot Map Visualization -->
+            <div class="parking-lot-map-container">
+                <div class="legend-bar">
+                    <span class="legend-item"><i class="fas fa-square available-color"></i> Available</span>
+                    <span class="legend-item"><i class="fas fa-square occupied-color"></i> Occupied</span>
+                    <span class="legend-item"><i class="fas fa-square selected-color"></i> Selected</span>
+                </div>
+                
+                <div class="parking-grid">
+                    <!-- Row 1 -->
+                    <div class="slot-row">
+                        <div class="parking-slot occupied">A1</div>
+                        <div class="parking-slot available">A2</div>
+                        <div class="parking-slot available">A3</div>
+                        <div class="parking-slot available">A4</div>
+                        <div class="parking-slot occupied">A5</div>
+                    </div>
+
+                    <div class="drive-aisle-professional">DRIVE AISLE</div>
+                    
+                    <!-- Row 2 -->
+                    <div class="slot-row">
+                        <div class="parking-slot available">B1</div>
+                        <div class="parking-slot available selected-spot" data-slot="B2">B2</div>
+                        <div class="parking-slot occupied">B3</div>
+                        <div class="parking-slot available">B4</div>
+                        <div class="parking-slot available">B5</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-note">
+                <i class="fas fa-info-circle"></i> Spot B2 is a preferred, wider slot.
+            </div>
+        </section>
+
+        <!-- Sidebar: Booking Summary & Call to Action -->
+        <aside class="sidebar-panel">
+            
+            <!-- 1. Booking Summary Card -->
+            <div class="card summary-card-pro">
+                <h3 class="card-title"><i class="fas fa-calendar-check"></i> Booking Details</h3>
+                <div class="detail-item"><strong>Location:</strong> City Center Mall</div>
+                <div class="detail-item"><strong>Duration:</strong> 2:00 PM - 4:00 PM (2 Hrs)</div>
+                <div class="detail-item"><strong>Vehicle:</strong> Standard Car</div>
+            </div>
+
+            <!-- 2. Selected Spot Card (The Key CTA) -->
+            <div class="card selected-spot-card">
+                <h3 class="card-title"><i class="fas fa-map-pin"></i> Your Selection</h3>
+                <div class="spot-highlight">
+                    <p class="spot-id-pro">B2</p>
+                </div>
+                <div class="spot-pricing">
+                    <span>Rate:</span> 
+                    <span class="price-value">$5.00/hour</span>
+                </div>
+                <div class="spot-pricing total">
+                    <span>Total Estimate:</span>
+                    <span class="price-value total-value">$10.00</span>
+                </div>
+                
+                <button class="cta-button book-slot-button-pro">
+                    Proceed to Payment for B2
+                </button>
+            </div>
+        </aside>
+
+    </main>
+
+</body>
+</html>

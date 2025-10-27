@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Petrol Pump</title>
+</head>
+<body>
+
+    <button id="findPumpButton">
+        Find Nearby Petrol Pump
+    </button>
+<style>
+    .image13{
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        left: 30px;
+        z-index:1;
+        width: 60px;
+        height: auto;
+    }
+</style>
+    <script>
+        document.getElementById('findPumpButton').addEventListener('click', function() {
+            // Check if the browser supports the Geolocation API
+            if (navigator.geolocation) {
+                // Get the user's current position
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        // Success: Location found
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+
+                        // Construct the Google Maps URL with the precise coordinates
+                        // The 'q' parameter is the search query: "petrol pump"
+                        const mapUrl = `https://www.google.com/maps/search/petrol+pump/@${lat},${lng},14z`;
+
+                        // Open the URL in a new tab/window
+                        window.open(mapUrl, '_blank');
+                    },
+                    function(error) {
+                        // Error: User denied location or a problem occurred
+                        console.error("Geolocation Error:", error);
+                        
+                        // Fallback to a generic "near me" search
+                        alert("Couldn't get your precise location. Opening generic 'Petrol Pump Near Me' search.");
+                        const fallbackUrl = 'https://www.google.com/maps/search/petrol+pump+near+me';
+                        window.open(fallbackUrl, '_blank');
+                    },
+                    {
+                        // Options for getCurrentPosition
+                        enableHighAccuracy: true, // Request the most accurate position
+                        timeout: 5000,            // Wait no more than 5 seconds
+                        maximumAge: 0             // Do not use a cached position
+                    }
+                );
+            } else {
+                // Browser does not support Geolocation
+                alert("Your browser does not support Geolocation. Opening generic search.");
+                const fallbackUrl = 'https://www.google.com/maps/search/petrol+pump+near+me';
+                window.open(fallbackUrl, '_blank');
+            }
+        });
+    </script>
+
+</body>
+</html>

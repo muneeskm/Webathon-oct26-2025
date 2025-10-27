@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#load {
+  text-align: center;
+}
+
+.circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 10px solid #0a66c2;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+
+.orbit {
+  position: absolute;
+  inset: 0; 
+  display: block;
+  transform-origin: center center;
+  animation: orbit 6s linear forwards;
+}
+
+.car {
+  position: absolute;
+  width: 50px;
+  
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateX(100px) rotate(-90deg);
+}
+
+@keyframes orbit {
+  
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+h2 {
+  color: #333;
+  font-weight: 500;
+}
+.signup {
+    position: absolute;
+    top: 490px;
+    left: 740px;
+    width: 230px;
+    height: 45px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.login:hover {
+    animation-duration: 60ms;
+    transform: scale(1.04);
+    box-shadow: #6e737a 0px 0px 20px;
+    transition: transform 0.2s;
+}
+.signup:hover {
+    animation-duration: 60ms;
+    transform: scale(1.04);
+    box-shadow: #75787c 0px 0px 20px;
+    transition: transform 0.2s;
+}
+.login {
+    position: absolute;
+    top: 490px;
+    left: 500px;
+    width: 230px;
+    height: 45px;
+    background-color: #326bc5;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+h1 {
+    position: absolute;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    top: 350px;
+    left: 460px;
+    color: #333;
+    font-weight: 700;
+    font-size: 3rem;
+}
+.image11 {
+    pointer-events:none;
+    position: absolute;
+    top: 30px;
+    left: 550px;
+    z-index:1;
+    width: 390px;
+    height: auto;
+}
